@@ -1,1 +1,12 @@
 .DS_Store
+.idea
+.DS_Store
+__pycache__
+venv
+
+output/*
+
+*.csv
+*.db
+
+twitter_keys.yml

@@ -1,0 +1,62 @@
+# output fields con
+twitter_status_fields_to_report:
+  - status.created_at
+  - status.user.screen_name
+  - is_retweet
+  - has_quote
+  - tweet_text
+  - quoted_text
+twitter_status_fields_to_report_headers:
+  - user id
+  - created at
+  - user name
+  - is retweet
+  - is quote
+  - text
+  - quoted text
+tags:
+  - hate speech
+  - hate
+  - loathe
+  - detest
+  - dislike greatly
+  - abhor
+  - abominate
+  - despise
+  - execrate
+  - feel aversion
+  - feel revulsion
+  - feel hostile
+  - repelled by
+  - revolted by
+  - regard with disgust
+  - not be able to bear
+  - not be able to stand
+  - unable to stomach
+  - find intolerable
+  - shudder at
+  - recoil from
+  - shrink from
+  - disrelish
+  - loathing
+  - hatred
+  - detestation
+  - dislike
+  - distaste
+  - abhorrence
+  - abomination
+  - execration
+  - resentment
+  - aversion
+  - hostility
+  - ill will
+  - ill feeling
+  - bad feeling
+language:
+  - en
+#timeout: 5       # time before switch off, sec.
+#max_messages: 5  # number of collected tweets before switch off
+
+# output configurations
+dbPath:  db/hatespeech.db
+replaceDatabase: true

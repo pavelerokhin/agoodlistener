@@ -1,0 +1,23 @@
+INSERT INTO tweets (
+    tweet_id,
+    author_id,
+    created_at,
+    in_reply_to_screen_name,
+    in_reply_to_user_id,
+    has_quote,
+    quote_count,
+    reply_count,
+    retweet_count,
+    tweet_text
+)
+VALUES
+    ({tweet_id},
+     {author_id},
+     {created_at},
+     {in_reply_to_screen_name},
+     {in_reply_to_user_id},
+     {has_quote},
+     {quote_count},
+     {reply_count},
+     {retweet_count},
+     '{tweet_text}')
