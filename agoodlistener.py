@@ -1,9 +1,10 @@
 # main launcher
 import getopt
 import sys
-from modules import twitterlistener as tl
+
 from modules.persistence.errors import SQLiteConnectionError, InsufficientConfigurationError
 from modules.persistence.orchestration import orchestrate_db_connection
+from modules.twitterlistener import stream_go
 
 from modules.utils import open_and_parse_yaml
 
@@ -39,7 +40,7 @@ if __name__ == "__main__":
     conn = None
     try:
         conn = orchestrate_db_connection(conf)
-        tl.stream_go(conf, keys, conn)
+        stream_go(conf, keys, conn)
     except (SQLiteConnectionError, InsufficientConfigurationError) as e:
         print(e.message)
         sys.exit(1)

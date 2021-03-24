@@ -3,8 +3,8 @@ import spacy
 
 from typing import List
 
-
 nlp = spacy.load("en_core_web_sm")
+
 TWITTER_LINK = r'https://t.co/.*'
 WHITESPACE = " "
 DOUBLE_WHITESPACE = "  "

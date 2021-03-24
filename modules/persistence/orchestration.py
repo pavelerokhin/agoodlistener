@@ -12,7 +12,7 @@ def orchestrate_db_connection(conf):
     if not db_file:
         raise InsufficientConfigurationError("no DB filepath available")
 
-    if conf.get('replaceDatabase'):
+    if os.path.exists(db_file) and conf.get('replaceDatabase'):
         os.remove(db_file)
 
     # create connection and DB if not exist
