@@ -1,5 +1,6 @@
 import sys
 import yaml
+from datetime import datetime
 
 
 def open_and_parse_yaml(file_name, error_message):
@@ -31,3 +32,8 @@ def get_full_text(status, is_extended):
     except AttributeError:
         return retweeted_status_text
     return retweeted_status_extended_tweet_text
+
+
+def simple_logger(place, message):
+    time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    print("{} - {}: {}".format(time, place, message))

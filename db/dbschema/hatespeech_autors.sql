@@ -10,6 +10,3 @@ CREATE TABLE IF NOT EXISTS authors (
     statuses_count integer,
     url text
 )
-
-
-
