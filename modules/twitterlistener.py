@@ -4,6 +4,7 @@ from modules.entities.Author import Author
 from modules.entities.Quote import Quote
 from modules.entities.Tweet import Tweet
 from modules.persistence.insertion import persist
+from modules.utils import simple_logger
 
 
 def stream_go(conf, keys, conn):
@@ -40,7 +41,7 @@ class StreamListener(tweepy.StreamListener):
     def on_status(self, status):
 
         if self.max_messages and self.messages_counter >= self.max_messages:
-            print(f"Max number of messages {self.max_messages} reached")
+            simple_logger(__name__, f"Max number of messages {self.max_messages} reached")
             return False
 
         self.messages_counter += 1
@@ -51,20 +52,20 @@ class StreamListener(tweepy.StreamListener):
         if tweet.has_quote:
             quote = Quote(status)
 
-        print(self.messages_counter, tweet)
+        simple_logger(__name__, f"{self.messages_counter}: {tweet}")
 
         # persistence
         persist(self.conn, tweet, quote, author)
 
     def on_disconnect(self, notice):
-        print("A Good Listener has disconnected")
+        simple_logger(__name__, f"A Good Listener has disconnected {notice}")
         return
 
     def on_error(self, status_code):
-        print("A Good Listener had an error in streaming", status_code)
+        simple_logger(__name__, f"A Good Listener had an error in streaming {status_code}")
 
     def on_exception(self, exception):
-        print("A Good Listener had an exception in streaming", exception)
+        simple_logger(__name__, f"A Good Listener had an exception in streaming {exception}")
         return
 
 
